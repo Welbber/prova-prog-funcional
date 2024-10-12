@@ -1,10 +1,12 @@
 module Questao1 (encontraParProximo) where
-
--- Dado um array ordenado e um número x, encontre um par (a,b) de números pertencentes 
--- ao array tal que (a + b) se aproxime o máximo possível de x.
+{-
+- Dado um array ordenado e um número x, encontre um par (a,b) de números pertencentes 
+- ao array tal que (a + b) se aproxime o máximo possível de x.
+-}
 
 {- 
 - Explicação do desenvolvimento:
+- Não achei que fazia sentido listas vazias ou com unico elemento retornarem um par, então lancei mensagem informativa a respeito.
 - Para desenvolver essa função pensei em criar um laço aninhado percorrendo a lista sendo duas vezes.
 - Tendo duas podas na arvore de recusão onde validada se encontrei  valores que produto de sua soma fossem iguais a n. 
 - A segunda poda é percorrer somente elementos i> no laço interno (claro que ainda assim nossa complexidade é O(n²))
