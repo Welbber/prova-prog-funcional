@@ -3,6 +3,7 @@ module Main where
 import Questao1
 import Questao2
 import Questao3
+import Questao4
 import Teste
 
 main :: IO ()
@@ -52,3 +53,17 @@ main = do
 
     putStrLn "=-=-= Teste Pop pilha =-=-="
     testarFuncao popPilha [([1], ([], Just 1)), ([2, 3, 4], ([3, 4], Just 2)),([], ([], Nothing))]
+
+    putStrLn "=-=-=-=-==-=-=-=-= TESTES QUESTÃO 4 =-=-=-=-==-=-=-=-="
+
+    putStrLn "=-=-= Teste Fila Vazia =-=-="
+    testarFuncao filaVazia [([], True), ([1, 2, 3], False)]
+    
+    putStrLn "=-=-= Teste Enqueue fila =-=-="
+    testarFuncao (uncurry enqueueFila) [(([1], 2), [1, 2]), (([], 1), [1])]
+    
+    putStrLn "=-=-= Teste Front fila =-=-="
+    testarFuncao frontFila [([1], Just 1), ([2, 2, 3, 45], Just 2), ([], Nothing)]
+    
+    putStrLn "=-=-= Teste Dequeue fila =-=-="
+    testarFuncao dequeueFila [([1], ([], Just 1)), ([2, 3, 4], ([3, 4], Just 2)), ([], ([], Nothing))]
