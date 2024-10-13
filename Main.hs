@@ -2,6 +2,7 @@ module Main where
 
 import Questao1
 import Questao2
+import Questao3
 import Teste
 
 main :: IO ()
@@ -36,4 +37,14 @@ main = do
             (([3, 7, 14, 25, 33, 45], 20), (14, 25)) -- Caso 10: n está no meio com lista de valores mistos
             ]
     putStrLn "=-=-=-=-==-=-=-=-= TESTES QUESTÃO 2 =-=-=-=-==-=-=-=-="
-    testarFuncao (uncurry encontraFloorECeil) casosDeTesteQuestao2 -- Executa casos de teste questão 1
+    testarFuncao (uncurry encontraFloorECeil) casosDeTesteQuestao2 -- Executa casos de teste questão 2
+
+    putStrLn "=-=-=-=-==-=-=-=-= TESTES QUESTÃO 3 =-=-=-=-==-=-=-=-="
+    putStrLn "=-=-= Teste Pilha Vazia =-=-="
+    testarFuncao  pilhaVazia [([], True), ([1, 2, 3], False)]
+    putStrLn "=-=-= Teste Push pilha =-=-="
+    testarFuncao (uncurry pushPilha) [(([1], 2), [2, 1]), (([], 1), [1])]
+    putStrLn "=-=-= Teste Top pilha =-=-="
+    testarFuncao topPilha [([1], Just 1), ([2, 2, 3, 45], Just 2), ([], Nothing)]
+    putStrLn "=-=-= Teste Pop pilha =-=-="
+    testarFuncao popPilha [([1], ([], Just 1)), ([2, 3, 4], ([3, 4], Just 2)),([], ([], Nothing))]
