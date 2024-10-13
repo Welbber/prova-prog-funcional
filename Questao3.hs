@@ -1,4 +1,6 @@
-module Questao3 (pilhaVazia, pushPilha, popPilha, topPilha) where
+module Questao3 (Pilha, pilhaVazia, pushPilha, popPilha, topPilha) where
+
+type Pilha a = [a]
 
 {-
 - Implementar uma pilha e seus algoritmos em Haskell. Use a lista de 
@@ -6,14 +8,18 @@ module Questao3 (pilhaVazia, pushPilha, popPilha, topPilha) where
 - pelo índice.
 -}
 
+pilhaVazia :: Pilha a -> Bool
 pilhaVazia [] = True
 pilhaVazia xs = False
 
+pushPilha :: Pilha a -> a -> Pilha a
 pushPilha xs elemento = elemento : xs
 
+popPilha :: Pilha a -> (Pilha a, Maybe a)
 popPilha [] = ([], Nothing)
 popPilha (x:xs) = (xs, Just x)
 
+topPilha :: Pilha a -> Maybe a
 topPilha [] = Nothing
 topPilha (x:xs) = Just x
 

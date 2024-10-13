@@ -40,11 +40,15 @@ main = do
     testarFuncao (uncurry encontraFloorECeil) casosDeTesteQuestao2 -- Executa casos de teste questão 2
 
     putStrLn "=-=-=-=-==-=-=-=-= TESTES QUESTÃO 3 =-=-=-=-==-=-=-=-="
+    
     putStrLn "=-=-= Teste Pilha Vazia =-=-="
     testarFuncao  pilhaVazia [([], True), ([1, 2, 3], False)]
+    
     putStrLn "=-=-= Teste Push pilha =-=-="
     testarFuncao (uncurry pushPilha) [(([1], 2), [2, 1]), (([], 1), [1])]
+    
     putStrLn "=-=-= Teste Top pilha =-=-="
     testarFuncao topPilha [([1], Just 1), ([2, 2, 3, 45], Just 2), ([], Nothing)]
+
     putStrLn "=-=-= Teste Pop pilha =-=-="
     testarFuncao popPilha [([1], ([], Just 1)), ([2, 3, 4], ([3, 4], Just 2)),([], ([], Nothing))]
