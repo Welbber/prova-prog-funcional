@@ -4,6 +4,7 @@ import Questao1
 import Questao2
 import Questao3
 import Questao4
+import Questao5
 import Teste
 
 main :: IO ()
@@ -67,3 +68,30 @@ main = do
     
     putStrLn "=-=-= Teste Dequeue fila =-=-="
     testarFuncao dequeueFila [([1], ([], Just 1)), ([2, 3, 4], ([3, 4], Just 2)), ([], ([], Nothing))]
+
+    putStrLn "=-=-=-=-==-=-=-=-= TESTES QUESTÃO 5 =-=-=-=-==-=-=-=-="
+    
+    let aluno1 = Aluno { matricula = 123, primeiroNome = "João", sobrenome = "Silva", periodoIngresso = "2018.1", cra = 8.5 }
+    let aluno2 = Aluno { matricula = 456, primeiroNome = "Maria", sobrenome = "Oliveira", periodoIngresso = "2019.2", cra = 9.0 }
+    let aluno3 = Aluno { matricula = 789, primeiroNome = "Ana", sobrenome = "Santos", periodoIngresso = "2020.1", cra = 7.8 }
+    let aluno4 = Aluno { matricula = 321, primeiroNome = "Carlos", sobrenome = "Pereira", periodoIngresso = "2017.1", cra = 3.9 }
+    let aluno5 = Aluno { matricula = 654, primeiroNome = "Paulo", sobrenome = "Costa", periodoIngresso = "2021.2", cra = 7.2 }
+    
+    let alunos1 = [aluno1, aluno2, aluno3]  
+    let alunos2 = [aluno1]                 
+    let alunos3 = []                       
+    
+    testarFuncao calculaMediaCRA [(alunos1, 8.433333), (alunos2, 8.5), (alunos3, 0.0)]
+    
+    let aluno6 = Aluno { matricula = 111, primeiroNome = "Maria", sobrenome = "Jose", periodoIngresso = "2021.2", cra = 7.2 }
+
+    let alunos4 = [aluno1, aluno2, aluno3, aluno4, aluno5, aluno6]
+    
+    let casosDeTeste = [
+            (alunos4, [(7.2, [aluno6, aluno5]), (3.9, [aluno4]), (7.8, [aluno3]), (9.0, [aluno2]), (8.5, [aluno1])]),   -- Teste 1: Todos os alunos
+            (alunos2, [(8.5, [aluno1])]),                                                                               -- Teste 2: Apenas um aluno
+            (alunos3, [])                                                                                               -- Teste 3: Lista vazia
+            ]
+
+    putStrLn "=-=-= Teste agrupamento Alunos pelo CRA =-=-="
+    testarFuncao agrupaAlunoPorCRA casosDeTeste

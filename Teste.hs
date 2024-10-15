@@ -1,5 +1,5 @@
 module Teste (testarFuncao) where
-
+import Questao5
 
 {-
 - Durante desenvolvimento dos testes da questão estava criando varias lets para armazenar

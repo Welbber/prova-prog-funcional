@@ -1,4 +1,4 @@
-module Questao3 (Pilha, pilhaVazia, pushPilha, popPilha, topPilha) where
+module Questao3 (Pilha, pilhaVazia, pushPilha, popPilha, topPilha, size) where
 
 type Pilha a = [a]
 
@@ -33,3 +33,6 @@ popPilha (x:xs) = (xs, Just x)
 topPilha :: Pilha a -> Maybe a
 topPilha [] = Nothing
 topPilha (x:xs) = Just x
+
+size :: Pilha a -> Int
+size = length

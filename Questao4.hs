@@ -1,4 +1,4 @@
-module Questao4 (Fila, filaVazia, enqueueFila, dequeueFila, frontFila) where
+module Questao4 (Fila, filaVazia, enqueueFila, dequeueFila, frontFila, size) where
 
 type Fila a = [a]
 
@@ -32,3 +32,5 @@ frontFila :: Fila a -> Maybe a
 frontFila [] = Nothing
 frontFila (x:xs) = Just x
 
+size :: Fila a -> Int
+size = length
